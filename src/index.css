@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #07090e;
+    color: #f8fafc;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Sharp, High-Visibility Crisp Neon Title */
+.title-neon-sharp {
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  background: linear-gradient(135deg, #00f2fe 0%, #38bdf8 25%, #a855f7 60%, #f72585 85%, #ffb703 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 2px 12px rgba(0, 242, 254, 0.35));
+}
+
+/* Modern Borderless Glassmorphism Cards */
+.glass-panel {
+  background: rgba(13, 18, 30, 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.8);
+}
+
+.glass-card {
+  background: rgba(22, 30, 48, 0.45);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* Modern Pill Buttons */
+.btn-saas-primary {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+}
+
+.btn-saas-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 25px -5px rgba(0, 242, 254, 0.4);
+}
+
+.btn-saas-primary:active {
+  transform: translateY(0px) scale(0.98);
+}
+
+/* Continuous Flowing Neon Light Beam Border Animation - ONLY around active QR container */
+@keyframes borderGlowSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animated-glowing-border {
+  position: relative;
+  border-radius: 1.75rem;
+  padding: 3px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0, 242, 254, 0.35);
+}
+
+.animated-glowing-border::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    transparent 0deg,
+    #00f2fe 90deg,
+    #a855f7 180deg,
+    #ec4899 270deg,
+    #00f2fe 360deg
+  );
+  animation: borderGlowSpin 3.5s linear infinite;
+  z-index: 0;
+}
+
+.animated-glowing-border-inner {
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  border-radius: 1.55rem;
+  padding: 1.1rem;
+}
+
+/* Monospace Font for Codes */
+.font-mono-code {
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.14em;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
